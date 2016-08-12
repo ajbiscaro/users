@@ -39,7 +39,7 @@ Route::post('/user', function (Request $request) {
 	$user->firstname = $request->firstname;
 	$user->middlename = $request->middlename;
 	$user->email = $request->email;
-	$user->password = $request->password;
+	$user->password = Hash::make($request->password);
 	$user->birthdate = $request->birthdate;
     $user->save();
 
