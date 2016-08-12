@@ -23,7 +23,8 @@ Route::post('/user', function (Request $request) {
         'lastname' => 'required|max:255',
 		'firstname' => 'required|max:255',
 		'middlename' => 'required|max:255',
-		'email' => 'required|email|unique:users'
+		'email' => 'required|email|unique:users',
+		'password' => 'required|confirmed',
     ]);
 
     if ($validator->fails()) {
@@ -37,6 +38,7 @@ Route::post('/user', function (Request $request) {
 	$user->firstname = $request->firstname;
 	$user->middlename = $request->middlename;
 	$user->email = $request->email;
+	$user->password = $request->password;
     $user->save();
 
     return redirect('/');

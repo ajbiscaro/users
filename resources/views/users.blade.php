@@ -47,6 +47,34 @@
                     <input type="email" name="email" id="email" class="form-control">
                 </div>
             </div>
+			
+			<!-- Password -->
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Password</label>
+
+                <div class="col-sm-6">
+                    <input type="text" name="password" id="password" class="form-control">
+                </div>
+            </div>
+			
+			
+			<!-- Confirm Password -->
+            <div class="form-group">
+                <label for="password_confirmation" class="col-sm-3 control-label">Confirm Password</label>
+
+                <div class="col-sm-6">
+                    <input type="text" name="password_confirmation" id="password_confirmation" class="form-control">
+                </div>
+            </div>
+			
+			<!-- Birthdate -->
+            <div class="form-group">
+                <label for="birthdate" class="col-sm-3 control-label">Birthdate</label>
+
+                <div class="col-sm-6">
+                    <input type="date" name="birthdate" id="birthdate" class="form-control">
+                </div>
+            </div>
 
             <!-- Add User Button -->
             <div class="form-group">
