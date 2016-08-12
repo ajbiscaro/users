@@ -25,6 +25,7 @@ Route::post('/user', function (Request $request) {
 		'middlename' => 'required|max:255',
 		'email' => 'required|email|unique:users',
 		'password' => 'required|confirmed',
+		'birthdate' => 'required|date_format:"Y-m-d"',
     ]);
 
     if ($validator->fails()) {
@@ -39,6 +40,7 @@ Route::post('/user', function (Request $request) {
 	$user->middlename = $request->middlename;
 	$user->email = $request->email;
 	$user->password = $request->password;
+	$user->birthdate = $request->birthdate;
     $user->save();
 
     return redirect('/');

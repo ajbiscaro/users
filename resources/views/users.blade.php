@@ -53,7 +53,7 @@
                 <label for="password" class="col-sm-3 control-label">Password</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="password" id="password" class="form-control">
+                    <input type="password" name="password" id="password" class="form-control">
                 </div>
             </div>
 			
@@ -63,7 +63,7 @@
                 <label for="password_confirmation" class="col-sm-3 control-label">Confirm Password</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="password_confirmation" id="password_confirmation" class="form-control">
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                 </div>
             </div>
 			
@@ -72,7 +72,7 @@
                 <label for="birthdate" class="col-sm-3 control-label">Birthdate</label>
 
                 <div class="col-sm-6">
-                    <input type="date" name="birthdate" id="birthdate" class="form-control">
+                    <input type="text" name="birthdate" id="birthdate" class="form-control date">
                 </div>
             </div>
 

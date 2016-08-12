@@ -11,6 +11,7 @@
 
 		<!-- Styles -->
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet"> 
 
 		<style>
 			body {
@@ -46,6 +47,17 @@
 		<!-- JavaScripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+		
+		<script type="text/javascript">  
+
+			$('.date').datepicker({  
+
+			   format: 'yyyy-mm-dd'  
+
+			 });  
+
+		</script>  
 		
     </body>
 </html>
