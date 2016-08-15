@@ -17,7 +17,7 @@
                 <label for="lastname" class="col-sm-3 control-label">Last Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="lastname" id="lastname" class="form-control">
+                    <input type="text" name="lastname" id="lastname" class="form-control" value="{{ old('lastname') }}">
                 </div>
             </div>
 			
@@ -26,7 +26,7 @@
                 <label for="firstname" class="col-sm-3 control-label">First Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="firstname" id="firstname" class="form-control">
+                    <input type="text" name="firstname" id="firstname" class="form-control" value="{{ old('firstname') }}">
                 </div>
             </div>
 			
@@ -35,7 +35,7 @@
                 <label for="middlename" class="col-sm-3 control-label">Middle Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="middlename" id="middlename" class="form-control">
+                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlenamer') }}">
                 </div>
             </div>
 			
@@ -44,7 +44,7 @@
                 <label for="email" class="col-sm-3 control-label">Email</label>
 
                 <div class="col-sm-6">
-                    <input type="email" name="email" id="email" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
                 </div>
             </div>
 			
@@ -72,7 +72,7 @@
                 <label for="birthdate" class="col-sm-3 control-label">Birthdate</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="birthdate" id="birthdate" class="form-control date">
+                    <input type="text" name="birthdate" id="birthdate" class="form-control date" value="{{ old('birthdate') }}">
                 </div>
             </div>
 
