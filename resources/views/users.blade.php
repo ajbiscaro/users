@@ -129,7 +129,7 @@
 								
 								<!-- Delete Button -->
 								<td>
-									<form action="{{ url('user/'.$user->id) }}" method="POST">
+									<form class="delete" action="{{ url('user/'.$user->id) }}" method="POST">
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
 
