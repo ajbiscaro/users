@@ -1,56 +1,12 @@
 <?php
 
-use App\User;
-use Illuminate\Http\Request;
-
-/**
- * Show User Dashboard
- */
-Route::get('/', function () {
-	$users = User::orderBy('created_at', 'asc')->get();
-
-    return view('users', [
-        'users' => $users
-    ]);
+Route::group(['middleware' => ['web']], function () {
 	
-});
+	Route::get('/', 'UserController@index');
+	Route::get('/create', 'UserController@create');
+	Route::post('/user', 'UserController@store');
+	Route::delete('/user/{user}', 'UserController@destroy');
 
-/**
- * Add New User
- */
-Route::post('/user', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'lastname' => 'required|max:255',
-		'firstname' => 'required|max:255',
-		'middlename' => 'required|max:255',
-		'email' => 'required|email|unique:users',
-		'password' => 'required|confirmed',
-		'birthdate' => 'required|date_format:"Y-m-d"',
-    ]);
+    //Route::auth();
 
-    if ($validator->fails()) {
-        return redirect('/')
-            ->withInput()
-            ->withErrors($validator);
-    }
-	
-	$user = new User;
-    $user->lastname = $request->lastname;
-	$user->firstname = $request->firstname;
-	$user->middlename = $request->middlename;
-	$user->email = $request->email;
-	$user->password = Hash::make($request->password);
-	$user->birthdate = $request->birthdate;
-    $user->save();
-
-    return redirect('/');
-});
-
-/**
- * Delete User
- */
-Route::delete('/user/{user}', function (User $user) {
-    $user->delete();
-
-    return redirect('/');
 });

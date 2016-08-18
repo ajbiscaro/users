@@ -1,4 +1,4 @@
-<!-- resources/views/users.blade.php -->
+<!-- resources/views/create.blade.php -->
 
 @extends('layouts.app')
 
@@ -9,7 +9,7 @@
         @include('common.errors')
 
         <!-- New User Form -->
-        <form action="{{ url('user') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/user') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- Last Name -->
@@ -86,65 +86,5 @@
             </div>
         </form>
     </div>
-
-    <!-- Current Users -->
-    @if (count($users) > 0)
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Current Users
-            </div>
-
-            <div class="panel-body">
-                <table class="table table-striped user-table">
-
-                    <!-- Table Headings -->
-                    <thead>
-                        <th>Last Name</th>
-						<th>First Name</th>
-						<th>Middle Name</th>
-						<th>Email</th>
-                        <th>&nbsp;</th>
-                    </thead>
-
-                    <!-- Table Body -->
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <!-- Last Name -->
-                                <td class="table-text">
-                                    <div>{{ $user->lastname }}</div>
-                                </td>
-								<!-- First Name -->
-								<td class="table-text">
-                                    <div>{{ $user->firstname }}</div>
-                                </td>
-								<!-- Middle Name -->
-								<td class="table-text">
-                                    <div>{{ $user->middlename }}</div>
-                                </td>
-                                <!-- Email -->
-								<td class="table-text">
-                                    <div>{{ $user->email }}</div>
-                                </td>
-								
-								<!-- Delete Button -->
-								<td>
-									<form class="delete" action="{{ url('user/'.$user->id) }}" method="POST">
-										{{ csrf_field() }}
-										{{ method_field('DELETE') }}
-
-										<button type="submit" class="btn btn-danger">
-											<i class="fa fa-trash"></i> Delete
-										</button>
-									</form>
-								</td>
-								
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    @endif
 	
 @endsection
