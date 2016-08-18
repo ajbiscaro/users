@@ -67,4 +67,11 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+	public function edit(User $user)
+	{
+		return view('edit',compact('user'));
+	}	
 }
+
+

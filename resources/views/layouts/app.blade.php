@@ -33,7 +33,7 @@
 
 						<!-- Branding Image -->
 						<a class="navbar-brand" href="{{ url('/') }}">
-							User List
+							Users
 						</a>
 					</div>
 

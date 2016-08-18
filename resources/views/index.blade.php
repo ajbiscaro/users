@@ -51,7 +51,7 @@
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
 										
-										<a href="#" class="btn btn-warning" ><i class="fa fa-pencil-square-o"></i> Edit</a>
+										<a href="{{ url('user/'.$user->id.'/edit') }}" class="btn btn-warning" ><i class="fa fa-pencil-square-o"></i> Edit</a>
 
 										<button type="submit" class="btn btn-danger">
 											<i class="fa fa-trash"></i> Delete
