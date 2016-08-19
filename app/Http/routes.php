@@ -4,9 +4,9 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::get('/', 'UserController@index');
 	Route::get('/create', 'UserController@create');
-	Route::get('/user/{user}/edit', 'UserController@edit');
+	Route::get('/edit/{user}', 'UserController@edit');
 	Route::post('/user', 'UserController@store');
-	Route::delete('/user/{user}', 'UserController@destroy');
+	Route::delete('/delete/{user}', 'UserController@destroy');
 
     //Route::auth();
 
