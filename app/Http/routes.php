@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middlewareGroups' => ['web']], function () {
 	
 	Route::get('/', 'UserController@index');
 	Route::get('/user/create', 'UserController@create');

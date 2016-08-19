@@ -39,16 +39,26 @@ class UserController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {		
-		$user = new User;
-		$user->lastname = $request->lastname;
-		$user->firstname = $request->firstname;
-		$user->middlename = $request->middlename;
-		$user->email = $request->email;
-		$user->password = $request->password;
-		$user->birthdate = $request->birthdate;
-		$user->save();
+    {	
+		$this->validate($request, [
+			'lastname' => 'required|max:255',
+			'firstname' => 'required|max:255',
+			'middlename' => 'required|max:255',
+			'email' => 'required|email|unique:users',
+			'password' => 'required|confirmed',
+			'birthdate' => 'required|date_format:"Y-m-d"',
+		]);
 
+		/*if ($validator->fails()) {
+			return redirect('/user/create')
+				->withInput()
+				->withErrors($validator);
+		}*/
+		
+		$input = $request->all();
+		
+		User::create($input);
+		
 		return redirect('/');
     }
 	

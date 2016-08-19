@@ -6,7 +6,15 @@
 
     <div class="panel-body">
         <!-- Display Validation Errors -->
-        @include('common.errors')
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 
         <!-- New User Form -->
         <form action="{{ url('/user') }}" method="POST" class="form-horizontal">
