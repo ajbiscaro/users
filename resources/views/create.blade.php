@@ -9,7 +9,7 @@
         @include('common.errors')
 
         <!-- New User Form -->
-        <form action="{{ url('/store') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/user') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- Last Name -->
