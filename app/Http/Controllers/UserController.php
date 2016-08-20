@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +19,9 @@ class UserController extends Controller
 	**/
 	public function index()
 	{
-		$users = User::orderBy('created_at', 'asc')->get();
+		$users = DB::table('users')->paginate(5);
+		
+		//$users = User::orderBy('created_at', 'asc')->get();
 		
 		return view('index',compact('users')); 
 	}
@@ -49,12 +53,6 @@ class UserController extends Controller
 			'birthdate' => 'required|date_format:"Y-m-d"',
 		]);
 
-		/*if ($validator->fails()) {
-			return redirect('/user/create')
-				->withInput()
-				->withErrors($validator);
-		}*/
-		
 		$input = $request->all();
 		
 		User::create($input);

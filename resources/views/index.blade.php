@@ -65,6 +65,9 @@
                     </tbody>
                 </table>
             </div>
+			
+			{{ $users->links() }}
+			
         </div>
     @endif
 	
