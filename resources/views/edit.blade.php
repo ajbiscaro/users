@@ -9,8 +9,9 @@
         @include('common.errors')
 
         <!-- New User Form -->
-        <form action="{{ url('/user') }}" method="POST" class="form-horizontal">
+        <form action="/user/{{ $user->id }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
+			{{ method_field('PATCH') }}
 
             <!-- Last Name -->
             <div class="form-group">

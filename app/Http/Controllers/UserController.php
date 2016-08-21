@@ -80,6 +80,16 @@ class UserController extends Controller
 	{
 		return view('edit',compact('user'));
 	}	
+	
+	public function update($id, Request $request)
+    {
+		$user = User::findOrFail($id);
+		$input = $request->all();
+
+		$user->fill($input)->save();
+		
+		return redirect('/');
+	}
 }
 
 
