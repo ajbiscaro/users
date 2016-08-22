@@ -4,15 +4,20 @@
 
 @section('content')
 
+	@if(Session::has('flash_message'))
+		<div class="alert alert-success">
+			{{ Session::get('flash_message') }}
+		</div>
+	@endif
+	
     <!-- Current Users -->
-    @if (count($users) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
                 Current Users
             	<a href="{{ url('/user/create') }}" class="btn btn-primary"><i class="fa fa-plus-square"></i> New User</a>
 			</div>
 			
-
+		    @if (count($users) > 0)
             <div class="panel-body">
                 <table class="table table-striped user-table">
 
@@ -67,8 +72,11 @@
             </div>
 			
 			{{ $users->links() }}
-			
-        </div>
-    @endif
+			@else
+				There are no users
+			@endif
+        
+		</div>
+
 	
 @endsection

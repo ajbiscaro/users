@@ -6,15 +6,9 @@
 
     <div class="panel-body">
         <!-- Display Validation Errors -->
-		@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
-					@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-		@endif
+		
+		@include('common.errors')
+		
 
         <!-- New User Form -->
         <form action="{{ url('/user') }}" method="POST" class="form-horizontal">
@@ -43,7 +37,7 @@
                 <label for="middlename" class="col-sm-3 control-label">Middle Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlenamer') }}">
+                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlename') }}">
                 </div>
             </div>
 			

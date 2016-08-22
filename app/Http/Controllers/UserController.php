@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 
+use Session;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -57,6 +59,8 @@ class UserController extends Controller
 		
 		User::create($input);
 		
+		Session::flash('flash_message', 'User successfully added!');
+		
 		return redirect('/');
     }
 	
@@ -72,6 +76,8 @@ class UserController extends Controller
         //$this->authorize('destroy', $task);
 
         $user->delete();
+		
+		Session::flash('flash_message', 'User successfully deleted!');
 
         return redirect('/');
     }
@@ -83,10 +89,21 @@ class UserController extends Controller
 	
 	public function update($id, Request $request)
     {
+		$this->validate($request, [
+			'lastname' => 'required|max:255',
+			'firstname' => 'required|max:255',
+			'middlename' => 'required|max:255',
+			'email' => 'required|email|unique:users',
+			'password' => 'required|confirmed',
+			'birthdate' => 'required|date_format:"Y-m-d"',
+		]);
+		
 		$user = User::findOrFail($id);
 		$input = $request->all();
 
 		$user->fill($input)->save();
+		
+		Session::flash('flash_message', 'User successfully updated!');
 		
 		return redirect('/');
 	}
