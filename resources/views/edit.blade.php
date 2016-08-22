@@ -83,6 +83,7 @@
                     <button type="submit" class="btn btn-default">
                         <i class="fa fa-plus"></i> Add User
                     </button>
+					<a href="{{ url('/') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to list</a>
                 </div>
             </div>
         </form>
