@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-
 use Session;
 
 use Illuminate\Http\Request;
@@ -20,10 +18,8 @@ class UserController extends Controller
 	 * Show Users
 	**/
 	public function index()
-	{
-		$users = DB::table('users')->paginate(5);
-		
-		//$users = User::orderBy('created_at', 'asc')->get();
+	{		
+		$users = User::orderBy('created_at', 'asc')->paginate(5);
 		
 		return view('index',compact('users')); 
 	}
@@ -73,8 +69,6 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        //$this->authorize('destroy', $task);
-
         $user->delete();
 		
 		Session::flash('flash_message', 'User successfully deleted!');
