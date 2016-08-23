@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
 			$table->string('firstname');
 			$table->string('middlename');
 			$table->string('email');
+			$table->date('birthdate');
             $table->timestamps();
         });
     }

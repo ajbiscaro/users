@@ -6,7 +6,9 @@
 
     <div class="panel-body">
         <!-- Display Validation Errors -->
-        @include('common.errors')
+		
+		@include('common.errors')
+		
 
         <!-- New User Form -->
         <form action="{{ url('/user') }}" method="POST" class="form-horizontal">
@@ -35,7 +37,7 @@
                 <label for="middlename" class="col-sm-3 control-label">Middle Name</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlenamer') }}">
+                    <input type="text" name="middlename" id="middlename" class="form-control" value="{{ old('middlename') }}">
                 </div>
             </div>
 			
@@ -47,26 +49,7 @@
                     <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
                 </div>
             </div>
-			
-			<!-- Password -->
-            <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">Password</label>
-
-                <div class="col-sm-6">
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
-            </div>
-			
-			
-			<!-- Confirm Password -->
-            <div class="form-group">
-                <label for="password_confirmation" class="col-sm-3 control-label">Confirm Password</label>
-
-                <div class="col-sm-6">
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
-                </div>
-            </div>
-			
+						
 			<!-- Birthdate -->
             <div class="form-group">
                 <label for="birthdate" class="col-sm-3 control-label">Birthdate</label>
@@ -82,6 +65,7 @@
                     <button type="submit" class="btn btn-default">
                         <i class="fa fa-plus"></i> Add User
                     </button>
+					<a href="{{ url('/') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to list</a>
                 </div>
             </div>
         </form>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,8 +18,8 @@ class UserController extends Controller
 	 * Show Users
 	**/
 	public function index()
-	{
-		$users = User::orderBy('created_at', 'asc')->get();
+	{		
+		$users = User::orderBy('created_at', 'asc')->paginate(5);
 		
 		return view('index',compact('users')); 
 	}
@@ -39,16 +41,21 @@ class UserController extends Controller
      * @return Response
      */
     public function store(Request $request)
-    {		
-		$user = new User;
-		$user->lastname = $request->lastname;
-		$user->firstname = $request->firstname;
-		$user->middlename = $request->middlename;
-		$user->email = $request->email;
-		$user->password = $request->password;
-		$user->birthdate = $request->birthdate;
-		$user->save();
+    {	
+		$this->validate($request, [
+			'lastname' => 'required|max:255',
+			'firstname' => 'required|max:255',
+			'middlename' => 'required|max:255',
+			'email' => 'required|email',
+			'birthdate' => 'required|date_format:"Y-m-d"',
+		]);
 
+		$input = $request->all();
+		
+		User::create($input);
+		
+		Session::flash('flash_message', 'User successfully added!');
+		
 		return redirect('/');
     }
 	
@@ -61,9 +68,9 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        //$this->authorize('destroy', $task);
-
         $user->delete();
+		
+		Session::flash('flash_message', 'User successfully deleted!');
 
         return redirect('/');
     }
@@ -72,6 +79,26 @@ class UserController extends Controller
 	{
 		return view('edit',compact('user'));
 	}	
+	
+	public function update($id, Request $request)
+    {
+		$this->validate($request, [
+			'lastname' => 'required|max:255',
+			'firstname' => 'required|max:255',
+			'middlename' => 'required|max:255',
+			'email' => 'required|email',
+			'birthdate' => 'required|date_format:"Y-m-d"',
+		]);
+		
+		$user = User::findOrFail($id);
+		$input = $request->all();
+
+		$user->fill($input)->save();
+		
+		Session::flash('flash_message', 'User successfully updated!');
+		
+		return redirect('/');
+	}
 }
 
 
