@@ -46,8 +46,7 @@ class UserController extends Controller
 			'lastname' => 'required|max:255',
 			'firstname' => 'required|max:255',
 			'middlename' => 'required|max:255',
-			'email' => 'required|email|unique:users',
-			'password' => 'required|confirmed',
+			'email' => 'required|email',
 			'birthdate' => 'required|date_format:"Y-m-d"',
 		]);
 
@@ -87,8 +86,7 @@ class UserController extends Controller
 			'lastname' => 'required|max:255',
 			'firstname' => 'required|max:255',
 			'middlename' => 'required|max:255',
-			'email' => 'required|email|unique:users',
-			'password' => 'required|confirmed',
+			'email' => 'required|email',
 			'birthdate' => 'required|date_format:"Y-m-d"',
 		]);
 		

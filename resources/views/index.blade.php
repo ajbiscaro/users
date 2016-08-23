@@ -27,6 +27,7 @@
 						<th>First Name</th>
 						<th>Middle Name</th>
 						<th>Email</th>
+						<th>Birthdate</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -49,6 +50,10 @@
                                 <!-- Email -->
 								<td class="table-text">
                                     <div>{{ $user->email }}</div>
+                                </td>
+								<!-- Birthdate -->
+								<td class="table-text">
+                                    <div>{{ $user->birthdate }}</div>
                                 </td>
 								
 								<td>
